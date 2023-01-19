@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/Open-CMSIS-Pack/devtools/schemas/projmgr/1.2.0/tools/projmgr/schemas/csolution.schema.json
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Open-CMSIS-Pack/devtools/schemas/projmgr/1.4.0/tools/projmgr/schemas/csolution.schema.json
 
 solution:
   packs:
@@ -33,6 +33,25 @@ solution:
       device: STMicroelectronics::STM32U585AIIx
     - type: AVH
       device: ARM::SSE-300-MPS3
+
+  build-types:
+    - type: Debug
+      misc:
+        - for-compiler: AC6
+          C:
+            - -O1
+            - -g
+        - for-compiler: GCC
+          C:
+            - -O1
+    - type: Release
+      misc:
+        - for-compiler: AC6
+          C:
+            - -O3
+        - for-compiler: GCC
+          C:
+            - -O3
 
   projects:
     - project: ./Demo.cproject.yml
