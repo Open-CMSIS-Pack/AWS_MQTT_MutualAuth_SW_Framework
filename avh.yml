@@ -10,6 +10,7 @@ upload:
   - framework/layer/Board/AVH_MPS3_Corstone-300/IoT/**/*
   - framework/layer/Socket/VSocket/**/*
   - RTE/**/*
+  - .cdefault.yml
   - app_main.c
   - Demo.*.yml
   - README.md
