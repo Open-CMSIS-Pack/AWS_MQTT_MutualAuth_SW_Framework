@@ -1,27 +1,27 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/Open-CMSIS-Pack/devtools/schemas/projmgr/1.4.0/tools/projmgr/schemas/cproject.schema.json
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Open-CMSIS-Pack/devtools/schemas/projmgr/1.5.0/tools/projmgr/schemas/cproject.schema.json
 
 project:
-  # packs:
-  #   - pack: ARM::CMSIS
-  #   - pack: ARM::CMSIS-FreeRTOS@10.4.6
-  #   - pack: ARM::mbedTLS@1.7.0
-  #   - pack: AWS::backoffAlgorithm@4.0.0
-  #   - pack: AWS::coreMQTT@4.0.0
-  #   - pack: AWS::coreMQTT_Agent@4.0.0
-  #   - pack: AWS::corePKCS11@4.0.1
-  #   - pack: Arm-Packs::PKCS11
+  packs:
+    - pack: ARM::CMSIS-FreeRTOS@10.4.6
+    - pack: ARM::mbedTLS@1.7.0
+    - pack: AWS::backoffAlgorithm@4.0.0
+    - pack: AWS::coreMQTT@4.0.0
+    - pack: AWS::coreMQTT_Agent@4.0.0
+    - pack: AWS::corePKCS11@4.0.1
+    - pack: Arm-Packs::PKCS11@1.0.0
 
-  #interfaces:
-  #  provides:
-  #    - FreeRTOS:
-  #    - RTOS2:
-  #  consumes:
-  #    - IoT_Socket:
-  #    - C_VIO:
-  #    - STDOUT:
-  #    - STDIN:
-  #    - STDERR:
-  #    - Heap : 65536
+  connections:
+    - connect: Demo Application
+      provides:
+        - FreeRTOS
+        - CMSIS-RTOS2
+      consumes:
+        - IoT_Socket
+        - CMSIS_VIO
+        - STDIN
+        - STDOUT
+        - STDERR
+        - Heap: 65536
 
   add-path:
     - ./config_files
@@ -127,23 +127,23 @@ project:
   layers:
     # Socket
     - layer: ./Socket/FreeRTOS+TCP/Socket.clayer.yml
-      for-type:
+      for-context:
         - +IP-Stack
     - layer: ./Socket/WiFi/Socket.clayer.yml
-      for-type:
+      for-context:
         - +WiFi
     - layer: ./Socket/VSocket/Socket.clayer.yml
-      for-type:
+      for-context:
         - +AVH
 
     # Board
     - layer: ./Board/IMXRT1050-EVKB/Board.clayer.yml
-      for-type:
+      for-context:
         - +IP-Stack
         # - +WiFi
     - layer: ./Board/B-U585I-IOT02A/Board.clayer.yml
-      for-type:
+      for-context:
         - +WiFi
     - layer: ./Board/AVH_MPS3_Corstone-300/Board.clayer.yml
-      for-type:
+      for-context:
         - +AVH
