@@ -7,8 +7,8 @@ backend:
 upload:
   - amazon-freertos/**/*
   - config_files/**/*
-  - Board/**/*
-  - Socket/**/*
+  - framework/layer/Board/AVH_MPS3_Corstone-300/IoT/**/*
+  - framework/layer/Socket/VSocket/**/*
   - RTE/**/*
   - app_main.c
   - Demo.*.yml
