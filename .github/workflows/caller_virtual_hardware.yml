@@ -6,8 +6,8 @@ on:
       - .github/workflows/caller_virtual_hardware.yml
       - amazon-freertos/**/*
       - config_files/**/*
-      - Board/AVH_MPS3_Corstone-300/**/*
-      - Socket/VSocket/**/*
+      - framework/layer/Board/AVH_MPS3_Corstone-300/IoT/**/*
+      - framework/layer/Socket/VSocket/**/*
       - RTE/**/*
       - app_main.c
       - Demo.*.yml
